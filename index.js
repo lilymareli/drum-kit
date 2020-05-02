@@ -11,9 +11,13 @@
 // querySelector chooses always the first one.
 
 document.querySelector(".a").style.backgroundImage = "url('images/kick.png')";
+document.querySelector(".w").style.backgroundImage = "url('images/crash.png')";
+document.querySelector(".s").style.backgroundImage = "url('images/tom1.png')";
+document.querySelector(".d").style.backgroundImage = "url('images/tom2.png')";
 
 
-document.querySelector(".drum").addEventListener("click", function () {
+
+document.querySelector(".w").addEventListener("click", function () {
   var wAudio = new Audio("sounds/crash.mp3");
   wAudio.play();
 });
