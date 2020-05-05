@@ -1,31 +1,74 @@
+var drumList = ["wDrum", "aDrum", "sDrum", "dDrum", "jDrum", "kDrum", "lDrum"];
 
-//var numberOfButtons = document.querySelectorAll(".drum").length;
-//for (var i=0; i<=numberOfButtons; i++) {
+var wDrum = document.querySelector(".w");
+var aDrum = document.querySelector(".a");
+var sDrum = document.querySelector(".s");
+var dDrum = document.querySelector(".d");
+var jDrum = document.querySelector(".j");
+var kDrum = document.querySelector(".k");
+var lDrum = document.querySelector(".l");
 
+// BACKGROUNDS -----------------------------------------------
+wDrum.style.backgroundImage = "url('images/crash.png')";
+aDrum.style.backgroundImage = "url('images/kick.png')";
+sDrum.style.backgroundImage = "url('images/tom1.png')";
+dDrum.style.backgroundImage = "url('images/tom2.png')";
+jDrum.style.backgroundImage = "url('images/tom3.png')";
+kDrum.style.backgroundImage = "url('images/tom4.png')";
+lDrum.style.backgroundImage = "url('images/snare.png')";
 
+// SOUNDS ---------------------------------------------------------
 
-//document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-//var audio = new Audio("sounds/tom-1.mp3");
-//audio.play();
-//}); }
-// querySelector chooses always the first one.
-
-document.querySelector(".a").style.backgroundImage = "url('images/kick.png')";
-document.querySelector(".w").style.backgroundImage = "url('images/crash.png')";
-document.querySelector(".s").style.backgroundImage = "url('images/tom1.png')";
-document.querySelector(".d").style.backgroundImage = "url('images/tom2.png')";
-
-
-
-document.querySelector(".w").addEventListener("click", function () {
+function wDrumSound() {
   var wAudio = new Audio("sounds/crash.mp3");
   wAudio.play();
-});
+}
+wDrum.addEventListener("click", wDrumSound);
 
-document.querySelector(".a").addEventListener("click", function () {
+function aDrumSound() {
   var aAudio = new Audio("sounds/kick-bass.mp3");
   aAudio.play();
-});
+}
+aDrum.addEventListener("click", aDrumSound);
+
+
+
+
+
+
+
+var numberOfButtons = document.querySelectorAll(".drum").length;
+for (var i=0; i<=numberOfButtons; i++) {
+
+document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+this.style.color = "white";
+}); }
+// querySelector chooses always the first one.
+
+
+
+
+
+
+
+//function name() {
+  //var wAudio = new Audio("sounds/crash.mp3");
+//  wAudio.play();
+//}
+
+//var item = [".w", ".a", ".s", ".d", ".j", ".k", ".l"];
+//if (item = .w) {
+  //document.querySelector(item).addEventListener("click", function name());
+//} else {
+//  document.querySelector(item).addEventListener("click", function name());
+//}
+
+
+
+//document.querySelector(".a").addEventListener("click", function () {
+  //var aAudio = new Audio("sounds/kick-bass.mp3");
+  //aAudio.play();
+//});
 //class="w drum">w</button>
 //<button class="a drum">a</button>
 //<button class="s drum">s</button>
