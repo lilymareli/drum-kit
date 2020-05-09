@@ -1,3 +1,4 @@
+
 var drumList = ["wDrum", "aDrum", "sDrum", "dDrum", "jDrum", "kDrum", "lDrum"];
 
 var wDrum = document.querySelector(".w");
@@ -9,6 +10,7 @@ var kDrum = document.querySelector(".k");
 var lDrum = document.querySelector(".l");
 
 // BACKGROUNDS -----------------------------------------------
+
 wDrum.style.backgroundImage = "url('images/crash.png')";
 aDrum.style.backgroundImage = "url('images/kick.png')";
 sDrum.style.backgroundImage = "url('images/tom1.png')";
@@ -17,62 +19,78 @@ jDrum.style.backgroundImage = "url('images/tom3.png')";
 kDrum.style.backgroundImage = "url('images/tom4.png')";
 lDrum.style.backgroundImage = "url('images/snare.png')";
 
-// SOUNDS ---------------------------------------------------------
 
-function wDrumSound() {
-  var wAudio = new Audio("sounds/crash.mp3");
-  wAudio.play();
-}
-wDrum.addEventListener("click", wDrumSound);
-
-function aDrumSound() {
-  var aAudio = new Audio("sounds/kick-bass.mp3");
-  aAudio.play();
-}
-aDrum.addEventListener("click", aDrumSound);
-
-
-
-
-
-
+// CLICK ---------------------------------------------------------
 
 var numberOfButtons = document.querySelectorAll(".drum").length;
-for (var i=0; i<=numberOfButtons; i++) {
+for (var i = 0; i < numberOfButtons; i++) {
 
-document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-this.style.color = "white";
-}); }
+  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+    var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
+    });
+}
+
 // querySelector chooses always the first one.
 
+// KEYS ---------------------------------------------------------
+
+document.addEventListener("keydown", function(event) {
+  makeSound(event.key);
+  buttonAnimation(event.key);
+});
+
+function makeSound(key) {
+
+  switch (key) {
+
+    case "w":
+      var wAudio = new Audio("sounds/crash.mp3");
+      wAudio.play();
+      break;
+
+    case "a":
+      var aAudio = new Audio("sounds/kick-bass.mp3");
+      aAudio.play();
+      break;
+
+    case "s":
+      var sAudio = new Audio("sounds/tom-1.mp3");
+      sAudio.play();
+      break;
+
+    case "d":
+      var dAudio = new Audio("sounds/tom-2.mp3");
+      dAudio.play();
+      break;
+
+    case "j":
+      var jAudio = new Audio("sounds/tom-3.mp3");
+      jAudio.play();
+      break;
+
+    case "k":
+      var kAudio = new Audio("sounds/tom-4.mp3");
+      kAudio.play();
+      break;
+
+    case "l":
+      var lAudio = new Audio("sounds/snare.mp3");
+      lAudio.play();
+      break;
+
+    default:
+      console.log(buttonInnerHTML);
+
+  }
+};
 
 
-
-
-
-
-//function name() {
-  //var wAudio = new Audio("sounds/crash.mp3");
-//  wAudio.play();
-//}
-
-//var item = [".w", ".a", ".s", ".d", ".j", ".k", ".l"];
-//if (item = .w) {
-  //document.querySelector(item).addEventListener("click", function name());
-//} else {
-//  document.querySelector(item).addEventListener("click", function name());
-//}
-
-
-
-//document.querySelector(".a").addEventListener("click", function () {
-  //var aAudio = new Audio("sounds/kick-bass.mp3");
-  //aAudio.play();
-//});
-//class="w drum">w</button>
-//<button class="a drum">a</button>
-//<button class="s drum">s</button>
-//<button class="d drum">d</button>
-//<button class="j drum">j</button>
-//<button class="k drum">k</button>
-//<button class="l drum"
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function(){
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
