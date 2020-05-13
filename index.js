@@ -9,7 +9,7 @@ var jDrum = document.querySelector(".j");
 var kDrum = document.querySelector(".k");
 var lDrum = document.querySelector(".l");
 
-// BACKGROUNDS -----------------------------------------------
+// BACKGROUNDS ----------------------------------------------------
 
 wDrum.style.backgroundImage = "url('images/crash.png')";
 aDrum.style.backgroundImage = "url('images/kick.png')";
@@ -18,7 +18,6 @@ dDrum.style.backgroundImage = "url('images/tom2.png')";
 jDrum.style.backgroundImage = "url('images/tom3.png')";
 kDrum.style.backgroundImage = "url('images/tom4.png')";
 lDrum.style.backgroundImage = "url('images/snare.png')";
-
 
 // CLICK ---------------------------------------------------------
 
@@ -34,7 +33,7 @@ for (var i = 0; i < numberOfButtons; i++) {
 
 // querySelector chooses always the first one.
 
-// KEYS ---------------------------------------------------------
+// KEYS ----------------------------------------------------------
 
 document.addEventListener("keydown", function(event) {
   makeSound(event.key);
@@ -86,7 +85,7 @@ function makeSound(key) {
   }
 };
 
-
+// ANIMATION ----------------------------------------------------
 function buttonAnimation(currentKey) {
   var activeButton = document.querySelector("." + currentKey);
   activeButton.classList.add("pressed");
